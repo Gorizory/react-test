@@ -9,19 +9,23 @@ class App extends Component {
   }
 
   plus() {
-    let num = this.state.number;
-    num++;
-    this.state = {
-      number : num,
-    }
+    this.setState({
+      number : this.state.number + 1,
+    });
+  }
+
+  minus() {
+    this.setState({
+      number : this.state.number - 1,
+    });
   }
 
   render() {
     return (
       <div>
-        <text> {this.state.number} </text>
-        <button onClick={this.plus}> Plus </button>
-        <button> Minus </button>
+        <div> {this.state.number} </div>
+        <button onClick={this.plus.bind(this)}> Plus </button>
+        <button onClick={this.minus.bind(this)}> Minus </button>
       </div>
     );
   }
